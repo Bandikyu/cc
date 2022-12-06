@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  app:
+    image: node:18-alpine3.16
+    command: sh -c "npm run dev"
+    working_dir: /home/app/5-node
+    volumes:
+      - ../:/home/app
+    ports:
+      - 3000:3000
+    # tty: true
+    # stdin_open: true 
+  # server:
+  #   image: node:18-alpine3.16
+  #   # depends_on:
+  #   #   - app
+  #   stdin_open: true 
+  #   tty: true
+
