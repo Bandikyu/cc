@@ -1,0 +1,29 @@
+<%- include("../partials/head.ejs") %> 
+    <%- include("../partials/nav.ejs") %> 
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Contenido</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td><a href="/posts/1">Titulo 1</a></td>
+                    <td>Imagen 1</td>
+                    <td>Contenido 1</td>
+                    <td>
+                        <a href="/posts/create">
+                            <button type="button" class="btn btn-primary">Crear</button>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<%- include("../partials/footer.ejs") %> 

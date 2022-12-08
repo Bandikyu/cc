@@ -1,0 +1,17 @@
+<%- include("../partials/head.ejs") %> 
+    <%- include("../partials/nav.ejs") %> 
+    <div class="container">
+        <form>
+          <div class="mb-3">
+            <label for="titulo" class="form-label">Titulo</label>
+            <input type="text" class="form-control" id="titulo" aria-describedby="helpTitulo">
+            <div id="helpTitulo" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="contenido2">Contenido</label>
+            <textarea class="form-control" placeholder="Escriba aqui" id="contenido2" style="height: 100px"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+<%- include("../partials/footer.ejs") %> 
