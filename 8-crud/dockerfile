@@ -1,6 +1,7 @@
 FROM alpine:3.16
 RUN apk update && \
-    apk add zsh git vim zsh-autosuggestions zsh-syntax-highlighting bind-tools curl && \
+    apk add zsh git vim zsh-autosuggestions mysql mysql-client mariadb \ 
+    zsh-syntax-highlighting bind-tools curl && \
     rm -rf /var/cache/apk/*
 RUN sh -c $(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)
 RUN echo "source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc && \
