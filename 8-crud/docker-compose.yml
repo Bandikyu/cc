@@ -1,37 +1,5 @@
 version: "3.7"
 services:
-  # app:
-  #   image: node:18-alpine3.16
-  #   command: sh -c "npm run dev"
-  #   working_dir: /home/app/8-crud
-  #   volumes:
-  #     - ../:/home/app
-  #   ports:
-  #     - 3000:3000
-  #app:
-    # image: alpine:3.16
-    # command: sh -c "echo se creo bien"
-    # restart: always
-    # build: .
-    # working_dir: /home/app/
-    # volumes:
-    #   - ../:/home/app
-    # ports:
-    #   - 3000:3000
-    # tty: true
-  #--------------------------------------
-  # db:
-  #   image: mariadb:10.8.6-jammy
-  #   restart: always
-  #   environment:
-  #     MARIADB_ROOT_PASSWORD: example
-
-  # adminer:
-  #   image: phpmyadmin:5.2-fpm-alpine
-  #   restart: always
-  #   ports:
-  #     - 8080:8080
-  #--------------------------------------
   # Database
   db:
     platform: linux/x86_64
@@ -43,8 +11,9 @@ services:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: yourdb
+      MYSQL_DATABASE: CaC
       MYSQL_PASSWORD: password
+    
     networks:
       - mysql-phpmyadmin
   # phpmyadmin
@@ -60,6 +29,24 @@ services:
       MYSQL_ROOT_PASSWORD: password
     networks:
       - mysql-phpmyadmin
+  app:
+    image: node:18-alpine3.16
+    command: sh -c "npm run dev"
+    working_dir: /home/app/8-crud
+    volumes:
+      - ../:/home/app
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    networks:
+      - mysql-phpmyadmin
+    # tty: true
+    environment:
+      MYSQL_HOST: db
+    #   MYSQL_USER: root
+    #   MYSQL_PASSWORD: password
+    #   MYSQL_DB: CaC
 
 networks:
   mysql-phpmyadmin:

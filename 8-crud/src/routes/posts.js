@@ -1,14 +1,24 @@
 const express = require("express");
 const router = express.Router("router");
 
+const PostModel = require("../models/PostModel")
 // CRUD - Partes
 
-// C mostrar el formulario
+// C mostrar el formulario de creacion
 router.get("/create" , (req, res) => {
     res.render("posts/create")
 });
 // C guardar los datos
-router.post("/store" , (req, res) => {});
+router.post("/store" , async (req, res) => {
+    console.log(req.body);
+    await PostModel.create(req.body);
+    /* Despues puedo ver una manera de enviar un json como respuesta,
+    y en base al contenido del json se genera un alert informando el estado del envio.
+    Todo eso tendria que procesarlo en el frontend de "create" por medio de una promesa
+    que se inicie con una funcion que se active con el envio del formulario */
+    res.redirect("/posts/create");
+    // res.send("Entraste en store");
+});
 
 // R leer todos los registos
 router.get("/" , (req, res) => {
