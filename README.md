@@ -37,6 +37,9 @@ Entrar al docker compose file y editar algunas lineas iniciales:
 ### Cada vez que queramos iniciar la app, usamos `docker compose up`
 
 ---
+## Sobre los datos SQL
+> Adjunto en algunas carpetas los archivos para iniciar la base de datos
+> con los datos que fui procesando en desarrollo.
 
 ---
 
