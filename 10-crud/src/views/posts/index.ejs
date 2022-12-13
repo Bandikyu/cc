@@ -1,0 +1,54 @@
+<%- include("../partials/head.ejs") %>
+  <%- include("../partials/nav.ejs") %>
+    <div class="container">
+      <h1>Listado de articulos</h1>
+      <a class="btn btn-primary btn-lg" href="./posts/create">Nuevo Articulo</a>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Contenido</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% posts.forEach((post)=> { %>
+            <tr>
+              <th scope="row">
+                <%= post.id %>
+              </th>
+              <td>
+                <a href="/posts/<%= post.id %>">
+                  <%= post.titulo %>
+                </a>
+              </td>
+              <td>Imagen 1</td>
+              <td>
+                <%= post.contenido %>
+              </td>
+              <td class="d-flex gap-2">
+                <a class="btn btn-primary" href="/posts/<%= post.id %>/edit">
+                  Editar
+                </a>
+                <!-- <form action="/posts/<%#= post.id %>/delete?_method=DELETE" method="post">
+                            <button type="submit" class="btn btn-danger">Borrar</button>
+                            </form> -->
+                <!-- Utilice una forma alternativa con fetch y asi evitaria instalar el paquete method-override 1️⃣ -->
+                <button class="probando btn btn-danger" value="<%= post.id %>">Borrar</button>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+<%- include("../partials/footer.ejs") %>
+<script>
+  const table = document.querySelector(".table");
+  table.addEventListener("click", (e) => {
+    if (e.target.classList[0] === "probando") {
+      fetch(`/posts/${e.target.value}/delete`, { method: "DELETE" }).then(e => window.location.href = e.url) // 1️⃣
+    }
+  })
+</script>

@@ -1,0 +1,20 @@
+<%- include("../partials/head.ejs") %>
+  <%- include("../partials/nav.ejs") %>
+    <div class="container">
+      <h1>Editar articulo</h1>
+      <form action="/posts/<%= post.id %>/update?_method=PUT" method="post">
+        <div class="mb-3">
+          <label for="titulo" class="form-label">Titulo</label>
+          <input value="<%= post.titulo %>" type="text" class="form-control" name="titulo" id="titulo"
+            aria-describedby="helpTitulo">
+          <div id="helpTitulo" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="contenido2">Contenido</label>
+          <textarea class="form-control" name="contenido" id="contenido2"
+            style="height: 100px"><%= post.contenido %></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+<%- include("../partials/footer.ejs") %>

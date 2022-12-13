@@ -1,0 +1,10 @@
+<%- include("../partials/head.ejs") %> 
+    <%- include("../partials/nav.ejs") %>
+        <h1><%= post.titulo %></h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZYfgbAXzKDwqtyURFdjpB8WJWLe8-kTwTGw&usqp=CAU" alt="">
+        <p><%= post.contenido %></p>
+        <ul>
+            <li>Fecha de creacion <%= (new Date(post.createdAt)).toLocaleString('es-AR', { timeZone: 'UTC' }) %></li>
+            <li>Fecha de modificacion <%= (new Date(post.updatedAt)).toLocaleString('es-AR', { timeZone: 'UTC' }) %></li>
+        </ul>
+<%- include("../partials/footer.ejs") %> 
