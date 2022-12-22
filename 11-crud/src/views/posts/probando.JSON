@@ -1,0 +1,77 @@
+{
+  "name": "SequelizeValidationError",
+  "errors": [
+    {
+      "message": "Solo se permiten letras",
+      "type": "Validation error",
+      "path": "titulo",
+      "value": "",
+      "origin": "FUNCTION",
+      "instance": {
+        "id": null,
+        "titulo": "",
+        "contenido": "",
+        "updatedAt": "2022-12-19T23:41:40.420Z",
+        "createdAt": "2022-12-19T23:41:40.420Z"
+      },
+      "validatorKey": "isAlpha",
+      "validatorName": "isAlpha",
+      "validatorArgs": [],
+      "original": { "validatorName": "isAlpha", "validatorArgs": [] }
+    },
+    {
+      "message": "Debe tener entre 2 y 20 caracteres",
+      "type": "Validation error",
+      "path": "titulo",
+      "value": "",
+      "origin": "FUNCTION",
+      "instance": {
+        "id": null,
+        "titulo": "",
+        "contenido": "",
+        "updatedAt": "2022-12-19T23:41:40.420Z",
+        "createdAt": "2022-12-19T23:41:40.420Z"
+      },
+      "validatorKey": "len",
+      "validatorName": "len",
+      "validatorArgs": [2, 20],
+      "original": { "validatorName": "len", "validatorArgs": [2, 20] }
+    },
+    {
+      "message": "Solo se permiten letras",
+      "type": "Validation error",
+      "path": "contenido",
+      "value": "",
+      "origin": "FUNCTION",
+      "instance": {
+        "id": null,
+        "titulo": "",
+        "contenido": "",
+        "updatedAt": "2022-12-19T23:41:40.420Z",
+        "createdAt": "2022-12-19T23:41:40.420Z"
+      },
+      "validatorKey": "isAlpha",
+      "validatorName": "isAlpha",
+      "validatorArgs": [],
+      "original": { "validatorName": "isAlpha", "validatorArgs": [] }
+    },
+    {
+      "message": "Debe tener entre 2 y 20 caracteres",
+      "type": "Validation error",
+      "path": "contenido",
+      "value": "",
+      "origin": "FUNCTION",
+      "instance": {
+        "id": null,
+        "titulo": "",
+        "contenido": "",
+        "updatedAt": "2022-12-19T23:41:40.420Z",
+        "createdAt": "2022-12-19T23:41:40.420Z"
+      },
+      "validatorKey": "len",
+      "validatorName": "len",
+      "validatorArgs": [2, 200],
+      "original": { "validatorName": "len", "validatorArgs": [2, 200] }
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+<%- include("../partials/head.ejs") %> 
+    <%- include("../partials/nav.ejs") %> 
+    <div class="container">
+        <h1>Crear articulo</h1>
+
+        <form action="/posts/store" method="post">
+          <div class="mb-3 row">
+            <label for="titulo" class="col-sm-2 col-form-label">Titulo</label>
+            <div class="col-sm-10">
+              <input value="" type="text" class="form-control" name="titulo" id="titulo"
+                aria-describedby="helpTitulo">
+            </div>
+              <% if(locals.error) {%>
+                <% console.log("%j" , locals.error) %>
+                  <details>
+                    <summary>Error al enviar</summary>
+                    <% let arrMsgErr = []; %> 
+                    <% locals.error.forEach( msgError=> { %>
+                      <%(!arrMsgErr.length) ? arrMsgErr.push(msgError.path.concat(":")) : false %>
+                      <% arrMsgErr.push(msgError.message.concat(".")) %>
+                    <% }); %>
+                    <div><%= arrMsgErr.join(" ") %> </div>
+                  </details>
+                <% } else { %>
+                  <!-- MEJORAR: tengo que agregarle mejoras al registro exitoso -->
+                    <div>
+                      <%= locals.exito %>
+                    </div>
+                <% } %>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label" for="imagen">Imagen</label>
+            <div class="col-sm-10">
+              <input type="file" class="form-control" name="imagen" id="imagen">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label" for="contenido">Contenido</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" name="contenido" id="contenido"
+                style="height: 100px"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+         
+    </div>
+<%- include("../partials/footer.ejs") %> 
+<script> 
+  <% if(locals.error) {%>
+    let cosa = <%- JSON.stringify(locals.error) %>;
+  <%}%>
+  document.querySelectorAll("[id]").forEach(e => {
+    console.log(cosa , cosa.indexOf(e.id) , e.id);;
+  });
+
+</script>
